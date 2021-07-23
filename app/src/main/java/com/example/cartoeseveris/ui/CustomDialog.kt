@@ -3,7 +3,7 @@ package com.example.cartoeseveris.ui
 import android.app.AlertDialog
 import android.view.View
 
-class Dialog {
+class CustomDialog {
     private lateinit var alertBuilder: AlertDialog.Builder
     private lateinit var alertDialog: AlertDialog
 

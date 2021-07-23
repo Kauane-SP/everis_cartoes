@@ -1,15 +1,33 @@
 package com.example.cartoeseveris.repository
 
-import com.example.cartoeseveris.model.UserPasswordLogin
+import android.content.Context
+import android.view.View
+import com.example.cartoeseveris.BackendException
+import com.example.cartoeseveris.ui.CustomDialog
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
-class LoginRepository() {
+class LoginRepository(val api: BackendException) {
     suspend fun getUserPasswordLogin(
-        idRegister: String,
-        idEmail: String
-    ): UserPasswordLogin =
-        withContext(Dispatchers.IO){
-            UserPasswordLogin(idRegister, idEmail)
+        emailLogin: String,
+        registerLogin: String,
+        context: Context,
+        view: View,
+        dialog: CustomDialog,
+        success: () -> Unit,
+        error: () -> Unit,
+    ) {
+        withContext(Dispatchers.IO)
+        {
+            api.successBackend(
+                emailLogin,
+                registerLogin,
+                context,
+                view,
+                dialog,
+                success,
+                error
+            )
         }
+    }
 }
