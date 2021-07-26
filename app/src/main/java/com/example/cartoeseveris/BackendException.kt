@@ -7,47 +7,51 @@ import com.example.cartoeseveris.ui.CustomDialog
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuthWeakPasswordException
 
-interface BackendException {
+class BackendException() {
 
     fun successBackend(
-        emailLogin: String,
-        registerLogin: String,
+        loginModel: LoginModel,
         context: Context,
         view: View,
         dialog: CustomDialog,
         success: () -> Unit,
         error: () -> Unit
     ) {
-        FirebaseAuth.getInstance()
-            .createUserWithEmailAndPassword(emailLogin, registerLogin)
-            .addOnCompleteListener {
-                if (it.isSuccessful) {
-                    success.invoke()
-                    Toast.makeText(context, "welcome", Toast.LENGTH_SHORT).show()
-                } else {
-                    error.invoke()
-                }
-            }
-            .addOnFailureListener {
-                when (it) {
-                    is FirebaseAuthWeakPasswordException -> {
+        if (loginModel.email.isNotEmpty() && loginModel.register.isNotEmpty()) {
+
+            FirebaseAuth.getInstance()
+                .signInWithEmailAndPassword(loginModel.register, loginModel.email)
+                .addOnCompleteListener {
+                    if (it.isSuccessful) {
+                        success.invoke()
+                        Toast.makeText(context, "welcome", Toast.LENGTH_SHORT).show()
+                    } else {
                         error.invoke()
-                        dialog.dialogInstance(
-                            view,
-                            context.getString(R.string.warning),
-                            context.getString(R.string.register_failed)
-                        )
-                    }
-                    else -> {
-                        error.invoke()
-                        dialog.dialogInstance(
-                            view,
-                            context.getString(R.string.warning),
-                            context.getString(R.string.warning_simple)
-                        )
                     }
                 }
-            }
+                .addOnFailureListener {
+                    when (it) {
+                        is FirebaseAuthWeakPasswordException -> {
+                            error.invoke()
+                            dialog.dialogInstance(
+                                view,
+                                context.getString(R.string.warning),
+                                context.getString(R.string.register_failed)
+                            )
+                        }
+                        else -> {
+                            error.invoke()
+                            dialog.dialogInstance(
+                                view,
+                                context.getString(R.string.warning),
+                                context.getString(R.string.warning_simple)
+                            )
+                        }
+                    }
+                }
+        } else {
+
+        }
     }
 }
 

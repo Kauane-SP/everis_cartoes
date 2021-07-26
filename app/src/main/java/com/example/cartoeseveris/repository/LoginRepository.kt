@@ -3,14 +3,14 @@ package com.example.cartoeseveris.repository
 import android.content.Context
 import android.view.View
 import com.example.cartoeseveris.BackendException
+import com.example.cartoeseveris.LoginModel
 import com.example.cartoeseveris.ui.CustomDialog
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
 class LoginRepository(val api: BackendException) {
     suspend fun getUserPasswordLogin(
-        emailLogin: String,
-        registerLogin: String,
+        loginModel: LoginModel,
         context: Context,
         view: View,
         dialog: CustomDialog,
@@ -20,8 +20,7 @@ class LoginRepository(val api: BackendException) {
         withContext(Dispatchers.IO)
         {
             api.successBackend(
-                emailLogin,
-                registerLogin,
+                loginModel,
                 context,
                 view,
                 dialog,
