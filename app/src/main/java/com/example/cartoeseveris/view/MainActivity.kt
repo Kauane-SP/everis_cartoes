@@ -1,7 +1,8 @@
-package com.example.cartoeseveris
+package com.example.cartoeseveris.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.cartoeseveris.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

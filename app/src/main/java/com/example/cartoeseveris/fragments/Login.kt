@@ -9,12 +9,11 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatButton
 import androidx.appcompat.widget.AppCompatEditText
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
-import com.example.cartoeseveris.BackendException
-import com.example.cartoeseveris.LoginModel
+import com.example.cartoeseveris.api.BackendException
+import com.example.cartoeseveris.model.LoginModel
 import com.example.cartoeseveris.R
 import com.example.cartoeseveris.repository.LoginRepository
 import com.example.cartoeseveris.ui.CustomDialog

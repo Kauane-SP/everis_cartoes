@@ -3,7 +3,7 @@ package com.example.cartoeseveris.useCase
 
 import android.content.Context
 import android.view.View
-import com.example.cartoeseveris.LoginModel
+import com.example.cartoeseveris.model.LoginModel
 import com.example.cartoeseveris.repository.LoginRepository
 import com.example.cartoeseveris.ui.CustomDialog
 

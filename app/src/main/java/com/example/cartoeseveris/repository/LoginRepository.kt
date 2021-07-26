@@ -2,8 +2,8 @@ package com.example.cartoeseveris.repository
 
 import android.content.Context
 import android.view.View
-import com.example.cartoeseveris.BackendException
-import com.example.cartoeseveris.LoginModel
+import com.example.cartoeseveris.api.BackendException
+import com.example.cartoeseveris.model.LoginModel
 import com.example.cartoeseveris.ui.CustomDialog
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext

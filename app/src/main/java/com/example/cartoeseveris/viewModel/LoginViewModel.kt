@@ -5,7 +5,7 @@ import android.view.View
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.cartoeseveris.LoginModel
+import com.example.cartoeseveris.model.LoginModel
 import com.example.cartoeseveris.ui.CustomDialog
 import com.example.cartoeseveris.useCase.LoginUseCase
 import kotlinx.coroutines.CoroutineScope
@@ -36,7 +36,7 @@ class LoginViewModel(private val useCase: LoginUseCase) : ViewModel() {
     }
 
     private fun getObserverLogin(
-       loginModel: LoginModel,
+        loginModel: LoginModel,
         context: Context,
         view: View,
         dialog: CustomDialog

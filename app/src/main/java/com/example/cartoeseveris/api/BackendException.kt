@@ -1,8 +1,10 @@
-package com.example.cartoeseveris
+package com.example.cartoeseveris.api
 
 import android.content.Context
 import android.view.View
 import android.widget.Toast
+import com.example.cartoeseveris.model.LoginModel
+import com.example.cartoeseveris.R
 import com.example.cartoeseveris.ui.CustomDialog
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuthWeakPasswordException
