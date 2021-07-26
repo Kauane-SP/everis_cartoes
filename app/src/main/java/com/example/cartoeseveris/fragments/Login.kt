@@ -45,7 +45,7 @@ class Login : Fragment() {
 
         btLogin = view.findViewById(R.id.bt_login)
         emailLogin = view.findViewById(R.id.ed_text_email_login)
-        registerLogin = view.findViewById(R.id.ed_text_senha_login)
+        registerLogin = view.findViewById(R.id.ed_text_register_login)
         val context = activity as Context
 
         btLogin.setOnClickListener {
