@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:layout_gravity="center_vertical"
     android:background="@drawable/shape_background_login"
+    android:id="@+id/content_login"
     tools:context=".fragments.Login">
 
     <androidx.appcompat.widget.AppCompatImageView
@@ -24,7 +25,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
         android:gravity="center"
-        android:text="Login to Home"
+        android:text="@string/title_login"
         android:textColor="@color/white"
         android:textSize="30sp"
         android:textStyle="bold"
@@ -50,7 +51,7 @@
             android:layout_marginTop="50dp"
             android:layout_marginEnd="24dp"
             android:background="@drawable/shape_text_login"
-            android:hint="email"
+            android:hint="@string/email_login"
             android:paddingStart="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -77,7 +78,7 @@
             android:layout_marginTop="16dp"
             android:layout_marginEnd="24dp"
             android:background="@drawable/shape_text_login"
-            android:hint="senha"
+            android:hint="@string/senha_login"
             android:inputType="textPassword"
             android:paddingStart="20dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -108,7 +109,7 @@
         android:layout_marginTop="50dp"
         android:layout_marginEnd="70dp"
         android:gravity="center"
-        android:text="Cadastre-se agora ! "
+        android:text="@string/cadastre_se_agora_login"
         android:textColor="@color/white"
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"

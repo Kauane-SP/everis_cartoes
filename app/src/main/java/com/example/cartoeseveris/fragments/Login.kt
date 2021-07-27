@@ -21,6 +21,8 @@ import com.example.cartoeseveris.useCase.LoginUseCase
 import com.example.cartoeseveris.viewModel.LoginTabState
 import com.example.cartoeseveris.viewModel.LoginViewModel
 import com.example.cartoeseveris.viewModel.LoginViewModelFactory
+import com.google.firebase.auth.FirebaseAuth
+import kotlin.concurrent.fixedRateTimer
 
 class Login : Fragment() {
 
@@ -37,7 +39,6 @@ class Login : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_login, container, false)
     }
 
@@ -56,8 +57,8 @@ class Login : Fragment() {
 
         dialog = CustomDialog()
         controllerInstance = Navigation.findNavController(view)
+        checksRegister()
         initViewModel()
-
     }
 
     private fun initViewModel(){
@@ -74,11 +75,22 @@ class Login : Fragment() {
                 when(viewEvent){
                     is LoginTabState.GetServicesFirebaseSuccess -> {
                         controllerInstance.navigate(R.id.action_login_to_home2)
+                        val close = parentFragmentManager.beginTransaction()
+                        close.remove(this)
+
                     }
                     is LoginTabState.GetServicesFirebaseError -> {
                         Toast(context)
                     }
                 }
         })
+    }
+
+    private fun checksRegister(){
+        val userRegister = FirebaseAuth.getInstance().currentUser
+
+        if (userRegister != null){
+            controllerInstance.navigate(R.id.action_login_to_home2)
+        }
     }
 }

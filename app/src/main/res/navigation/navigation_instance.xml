@@ -25,5 +25,12 @@
         android:id="@+id/home2"
         android:name="com.example.cartoeseveris.fragments.Home"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_home2_to_login"
+            app:destination="@id/login" />
+        <action
+            android:id="@+id/action_home2_to_mainActivity"
+            app:destination="@id/mainActivity" />
+    </fragment>
 </navigation>

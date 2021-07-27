@@ -2,7 +2,7 @@ package com.example.cartoeseveris.viewModel
 
 sealed class LoginTabState {
 
-     data class GetServicesFirebaseError(
+      class GetServicesFirebaseError(
         val error: String
     ): LoginTabState()
 
