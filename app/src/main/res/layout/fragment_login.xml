@@ -9,36 +9,43 @@
     android:id="@+id/content_login"
     tools:context=".fragments.Login">
 
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/image_logo"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:padding="16dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:src="@drawable/logo_cartoes"
-        />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tv_title_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
-        android:gravity="center"
+        android:layout_marginStart="30dp"
+        android:gravity="start"
         android:text="@string/title_login"
-        android:textColor="@color/white"
+        android:textColor="#272727"
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@id/layout_ed_text_email_login"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/image_logo" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_sub_title_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="30dp"
+        android:textColor="@color/black"
+        android:text="@string/sub_title_login"
+        app:layout_constraintTop_toBottomOf="@id/tv_title_login"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/layout_ed_text_email_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColorHint="@color/white"
+        android:textColorHint="#272727"
+        android:layout_marginTop="100dp"
+        app:hintTextColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_title_login">
@@ -50,12 +57,12 @@
             android:layout_marginStart="24dp"
             android:layout_marginTop="50dp"
             android:layout_marginEnd="24dp"
-            android:background="@drawable/shape_text_login"
             android:hint="@string/email_login"
+            android:background="@android:color/transparent"
             android:paddingStart="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_title_login" />
+            app:layout_constraintTop_toBottomOf="@id/tv_sub_title_login" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -63,9 +70,10 @@
         android:id="@+id/layout_ed_text_register_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColorHint="@color/white"
+        android:textColorHint="#272727"
         app:passwordToggleEnabled="true"
-        app:passwordToggleTint="@color/white"
+        app:passwordToggleTint="#272727"
+        app:hintTextColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/layout_ed_text_email_login">
@@ -77,8 +85,9 @@
             android:layout_marginStart="24dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="24dp"
-            android:background="@drawable/shape_text_login"
+            android:background="@android:color/transparent"
             android:hint="@string/senha_login"
+            app:hintTextColor="@color/black"
             android:inputType="textPassword"
             android:paddingStart="20dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -94,12 +103,23 @@
         android:layout_marginStart="70dp"
         android:layout_marginTop="50dp"
         android:layout_marginEnd="70dp"
+        android:textColor="@color/black"
         android:background="@drawable/shape_button_login"
         android:text="login"
-        app:layout_constraintBottom_toTopOf="@id/tv_cadastro"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/layout_ed_text_register_login" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/button_image_biometric"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/icone_digital_2"
+        app:layout_constraintTop_toBottomOf="@+id/bt_login"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/tv_cadastro"
+        />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tv_cadastro"
@@ -108,12 +128,13 @@
         android:layout_marginStart="70dp"
         android:layout_marginTop="50dp"
         android:layout_marginEnd="70dp"
+        android:layout_marginBottom="30dp"
         android:gravity="center"
         android:text="@string/cadastre_se_agora_login"
         android:textColor="@color/white"
         android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/bt_login" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
