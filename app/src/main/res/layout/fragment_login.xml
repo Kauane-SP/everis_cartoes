@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center_vertical"
-    android:background="#111111"
+    android:background="#20243d"
     tools:context=".fragments.Login">
 
     <androidx.appcompat.widget.AppCompatTextView
