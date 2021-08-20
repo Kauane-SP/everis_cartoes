@@ -5,20 +5,20 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cartoeseveris.R
-import com.example.cartoeseveris.adapter.viewHolder.CartoesViewHolder
-import com.example.cartoeseveris.model.CartoesModel
+import com.example.cartoeseveris.adapter.viewHolder.CardViewHolder
+import com.example.cartoeseveris.model.CardModel
 
-class CartoesAdapter(private var list: List<CartoesModel>, private val context: Context) :
-    RecyclerView.Adapter<CartoesViewHolder>() {
+class CardAdapter(private var list: List<CardModel>, private val context: Context) :
+    RecyclerView.Adapter<CardViewHolder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CartoesViewHolder {
-        return CartoesViewHolder(
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CardViewHolder {
+        return CardViewHolder(
             LayoutInflater.from(parent.context)
                 .inflate(R.layout.layout_item_cartao, parent, false)
         )
     }
 
-    override fun onBindViewHolder(holder: CartoesViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: CardViewHolder, position: Int) {
         holder.onBind(list[position])
     }
 

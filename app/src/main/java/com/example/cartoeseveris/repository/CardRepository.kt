@@ -1,30 +1,30 @@
 package com.example.cartoeseveris.repository
 
-import com.example.cartoeseveris.api.cartoesApi.CartoesApiTask
-import com.example.cartoeseveris.model.CartoesModel
-import com.example.cartoeseveris.viewModel.CartoesTabState
+import com.example.cartoeseveris.api.cartoesApi.CardApiTask
+import com.example.cartoeseveris.model.CardModel
+import com.example.cartoeseveris.viewModel.states.CardTabState
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class CartoesRepository() : CallbackImplementation {
+class CardRepository() : CallbackImplementation {
 
     override suspend fun requestCartoes(
-        callbackSuccess: (success: List<CartoesModel>?) -> Unit,
+        callbackSuccess: (successes: List<CardModel>?) -> Unit,
         callbackError: (error: String) -> Unit
     ) {
 
-        val cartoesApiTask = CartoesApiTask()
+        val cardApiTask = CardApiTask()
 
         withContext(Dispatchers.IO) {
-            val request = cartoesApiTask.cartoesApi().getCartoesApi()
+            val request = cardApiTask.cartoesApi().getCartoesApi()
 
-            request.enqueue(object : Callback<List<CartoesModel>> {
+            request.enqueue(object : Callback<List<CardModel>> {
                 override fun onResponse(
-                    call: Call<List<CartoesModel>>,
-                    response: Response<List<CartoesModel>>
+                    call: Call<List<CardModel>>,
+                    response: Response<List<CardModel>>
                 ) {
                     if (response.isSuccessful) {
                         callbackSuccess.invoke(response.body())
@@ -32,8 +32,8 @@ class CartoesRepository() : CallbackImplementation {
 
                 }
 
-                override fun onFailure(call: Call<List<CartoesModel>>, t: Throwable) {
-                    CartoesTabState.GetServicesCartoesError(t.message.toString())
+                override fun onFailure(call: Call<List<CardModel>>, t: Throwable) {
+                    CardTabState.GetServicesCardError(t.message.toString())
                     callbackError.invoke(t.message.toString())
                 }
             })

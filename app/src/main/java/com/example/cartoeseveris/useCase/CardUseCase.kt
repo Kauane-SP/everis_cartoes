@@ -1,13 +1,13 @@
 package com.example.cartoeseveris.useCase
 
-import com.example.cartoeseveris.model.CartoesModel
+import com.example.cartoeseveris.model.CardModel
 import com.example.cartoeseveris.repository.CallbackImplementation
-import com.example.cartoeseveris.repository.CartoesRepository
+import com.example.cartoeseveris.repository.CardRepository
 
-class CartoesUseCase(private val repository: CartoesRepository) : CallbackImplementation {
+class CardUseCase(private val repository: CardRepository) : CallbackImplementation {
 
     override suspend fun requestCartoes(
-        callbackSuccess: (success: List<CartoesModel>?) -> Unit,
+        callbackSuccess: (successes: List<CardModel>?) -> Unit,
         callbackError: (error: String) -> Unit
     ) {
         repository.requestCartoes(callbackSuccess, callbackError)

@@ -8,6 +8,7 @@ import androidx.lifecycle.ViewModel
 import com.example.cartoeseveris.model.LoginModel
 import com.example.cartoeseveris.ui.CustomDialog
 import com.example.cartoeseveris.useCase.LoginUseCase
+import com.example.cartoeseveris.viewModel.states.LoginTabState
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob

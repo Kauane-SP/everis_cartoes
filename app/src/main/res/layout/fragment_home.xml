@@ -11,23 +11,26 @@
         android:id="@+id/recycler_cards"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:listitem="@layout/layout_item_cartao"
-        tools:itemCount="1"
+        android:layout_gravity="center_vertical"
+        android:clipToPadding="false"
+        android:overScrollMode="never"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:itemCount="1"
+        tools:listitem="@layout/layout_item_cartao" />
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/bt_logout"
-        android:layout_width="match_parent"
+    <include layout="@layout/chip_layout" />
+
+    <ProgressBar
+        android:id="@+id/services_loading"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
-        android:background="@drawable/shape_button_logout"
-        android:text="@string/logout_home"
-        app:layout_constraintBottom_toBottomOf="parent"
+        tools:visibility="visible"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

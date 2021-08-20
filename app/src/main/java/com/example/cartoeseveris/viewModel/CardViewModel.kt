@@ -3,43 +3,48 @@ package com.example.cartoeseveris.viewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.cartoeseveris.model.CartoesModel
-import com.example.cartoeseveris.useCase.CartoesUseCase
+import com.example.cartoeseveris.model.CardModel
+import com.example.cartoeseveris.useCase.CardUseCase
+import com.example.cartoeseveris.viewModel.events.CardTabEvent
+import com.example.cartoeseveris.viewModel.states.CardTabState
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.launch
 
-class CartoesViewModel(private val useCase: CartoesUseCase) : ViewModel() {
+class CardViewModel(private val useCase: CardUseCase) : ViewModel() {
 
-    private val state: MutableLiveData<CartoesTabState> = MutableLiveData()
-    val viewState: LiveData<CartoesTabState> = state
+    private val event: MutableLiveData<CardTabEvent> = MutableLiveData()
+    val viewEvent: LiveData<CardTabEvent> = event
+    private val state: MutableLiveData<CardTabState> = MutableLiveData()
+    val viewState: LiveData<CardTabState> = state
     private val viewModeJob = SupervisorJob()
     private val coroutineContext = Dispatchers.Main + viewModeJob
 
-    fun init(cartoesModel: List<CartoesModel>) {
-        getServicesCartoes(cartoesModel)
+    fun init(cardModel: List<CardModel>) {
+        getServicesCards(cardModel)
     }
 
 
-    private fun getServicesCartoes(cartoesModel: List<CartoesModel>) {
+    private fun getServicesCards(cardModel: List<CardModel>) {
+        event.value = CardTabEvent.ShowCardLoading
         CoroutineScope(coroutineContext).launch {
             try {
                 useCase.requestCartoes(::successInvokeList, ::errorInvokeList)
-                state.value = CartoesTabState.GetServicesCartoes(cartoesModel)
-            } catch (excption: Exception) {
-                state.value = CartoesTabState.GetServicesCartoesError(excption.toString())
+                state.value = CardTabState.GetServicesCard(cardModel)
+            } catch (exception: Exception) {
+                state.value = CardTabState.GetServicesCardError(exception.toString())
             }
         }
     }
 
-    private fun successInvokeList(list: List<CartoesModel>?) {
+    private fun successInvokeList(list: List<CardModel>?) {
         if (list != null) {
-            state.value = CartoesTabState.GetServicesCartoes(list)
+            state.value = CardTabState.GetServicesCard(list)
         }
     }
 
     private fun errorInvokeList(exeption: String) {
-        state.value = CartoesTabState.GetServicesCartoesError(exeption)
+        state.value = CardTabState.GetServicesCardError(exeption)
     }
 }

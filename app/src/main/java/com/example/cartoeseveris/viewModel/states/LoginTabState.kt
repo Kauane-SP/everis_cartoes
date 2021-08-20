@@ -1,4 +1,4 @@
-package com.example.cartoeseveris.viewModel
+package com.example.cartoeseveris.viewModel.states
 
 sealed class LoginTabState {
 

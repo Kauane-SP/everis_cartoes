@@ -1,4 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
-  
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/home"
+        android:icon="@drawable/ic_icon_home_menu"
+        android:title="Home"
+        app:cnb_iconColor="#fc8072" />
+
+    <item
+        android:id="@+id/person"
+        android:icon="@drawable/ic_icon_user_menu"
+        android:title="User"
+        app:cnb_iconColor="#7b68ee" />
+
 </menu>

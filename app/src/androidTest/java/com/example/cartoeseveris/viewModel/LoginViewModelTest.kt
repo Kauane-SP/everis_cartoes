@@ -1,9 +1,9 @@
 package com.example.cartoeseveris.viewModel
 
-import androidx.lifecycle.LiveData
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.example.cartoeseveris.model.LoginModel
 import com.example.cartoeseveris.useCase.LoginUseCase
+import com.example.cartoeseveris.viewModel.states.LoginTabState
 import io.mockk.impl.annotations.MockK
 import junit.framework.TestCase
 import kotlinx.coroutines.runBlocking

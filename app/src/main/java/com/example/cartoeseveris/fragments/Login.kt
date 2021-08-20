@@ -11,7 +11,6 @@ import androidx.appcompat.widget.AppCompatButton
 import androidx.appcompat.widget.AppCompatEditText
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.biometric.BiometricPrompt
-import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
@@ -22,12 +21,10 @@ import com.example.cartoeseveris.api.ImplementationBiometric
 import com.example.cartoeseveris.repository.LoginRepository
 import com.example.cartoeseveris.ui.CustomDialog
 import com.example.cartoeseveris.useCase.LoginUseCase
-import com.example.cartoeseveris.viewModel.LoginTabState
+import com.example.cartoeseveris.viewModel.states.LoginTabState
 import com.example.cartoeseveris.viewModel.LoginViewModel
 import com.example.cartoeseveris.viewModel.LoginViewModelFactory
 import com.google.firebase.auth.FirebaseAuth
-import java.util.concurrent.Executor
-import kotlin.concurrent.fixedRateTimer
 
 class Login : Fragment() {
 
