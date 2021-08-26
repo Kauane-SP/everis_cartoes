@@ -14,7 +14,7 @@ import org.junit.runner.RunWith
 import org.koin.ext.isInt
 
 @RunWith(AndroidJUnit4::class)
-class LoginViewModelTest : TestCase(){
+class LoginActivityViewModelTest : TestCase(){
 
     @MockK
     lateinit var mockedUseCase: LoginUseCase

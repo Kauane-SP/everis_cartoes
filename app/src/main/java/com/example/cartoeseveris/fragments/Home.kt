@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ProgressBar
 import androidx.appcompat.widget.AppCompatButton
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
@@ -28,7 +29,6 @@ import com.google.firebase.auth.FirebaseAuth
 class Home : Fragment() {
 
     private lateinit var btLogout: AppCompatButton
-    private lateinit var controllerInstance: NavController
     private lateinit var recyclerList: RecyclerView
     private lateinit var viewModel: CardViewModel
     private lateinit var listCards: List<CardModel>
@@ -43,24 +43,23 @@ class Home : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        controllerInstance = Navigation.findNavController(view)
 //      btLogout = view.findViewById(R.id.bt_logout)
 //        btLogout.setOnClickListener {
 //            logoutUser()
 //        }
+
         val context = activity as Context
         listCards = listOf()
-
         progressBar = view.findViewById(R.id.services_loading)
         recyclerList = view.findViewById(R.id.recycler_cards)
         initViewModel(context, listCards)
 
     }
-
-    fun logoutUser() {
-        FirebaseAuth.getInstance().signOut()
-        controllerInstance.navigate(R.id.action_home2_to_login)
-    }
+//
+//    fun logoutUser() {
+//        FirebaseAuth.getInstance().signOut()
+//        controllerInstance.navigate(R.id.action_home2_to_login)
+//    }
 
     fun initViewModel(context: Context, list: List<CardModel>) {
         val repository = CardRepository()
@@ -107,6 +106,8 @@ class Home : Fragment() {
     }
 
     private fun onServiceError(error: String) {
+        val transition = activity?.supportFragmentManager?.beginTransaction()
+        transition?.replace(R.id.fragment_content_error_generic, ErrorGeneric())
 
     }
 
@@ -114,5 +115,9 @@ class Home : Fragment() {
         recyclerList.layoutManager = LinearLayoutManager(context, RecyclerView.HORIZONTAL, false)
         recyclerList.adapter = CardAdapter(services, activity)
         progressBar.visibility = View.GONE
+    }
+
+    companion object{
+        fun newInstance() = Home()
     }
 }

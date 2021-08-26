@@ -9,7 +9,7 @@
         app:cnb_iconColor="#fc8072" />
 
     <item
-        android:id="@+id/person"
+        android:id="@+id/users"
         android:icon="@drawable/ic_icon_user_menu"
         android:title="User"
         app:cnb_iconColor="#7b68ee" />

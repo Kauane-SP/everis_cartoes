@@ -1,2 +1,3 @@
 rootProject.name = "Cartoes Everis"
 include ':app'
+include ':communs'

@@ -20,8 +20,6 @@
         tools:itemCount="1"
         tools:listitem="@layout/layout_item_cartao" />
 
-    <include layout="@layout/chip_layout" />
-
     <ProgressBar
         android:id="@+id/services_loading"
         android:layout_width="wrap_content"
