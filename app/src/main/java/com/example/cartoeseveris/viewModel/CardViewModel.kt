@@ -30,7 +30,7 @@ class CardViewModel(private val useCase: CardUseCase) : ViewModel() {
         event.value = CardTabEvent.ShowCardLoading
         CoroutineScope(coroutineContext).launch {
             try {
-                useCase.requestCartoes(::successInvokeList, ::errorInvokeList)
+                useCase.requestCards(::successInvokeList, ::errorInvokeList)
                 state.value = CardTabState.GetServicesCard(cardModel)
             } catch (exception: Exception) {
                 state.value = CardTabState.GetServicesCardError(exception.toString())

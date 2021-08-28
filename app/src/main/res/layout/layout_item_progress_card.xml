@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="123dp"
+    android:layout_height="123dp"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
+
+    <ProgressBar
+        android:id="@+id/progress_card_default"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:background="@drawable/shape_circle_progress"
+        android:indeterminate="false"
+        android:max="100"
+        android:progress="0"
+        tools:progress="80"
+        android:progressDrawable="@drawable/shape_color_circle_progress"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <ProgressBar
+        android:id="@+id/progress_card_parcial"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:background="@drawable/shape_circle_progress"
+        android:indeterminate="false"
+        android:max="100"
+        android:progress="0"
+        tools:progress="80"
+        android:visibility="gone"
+        android:progressDrawable="@drawable/shape_color_circle_progress"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <ProgressBar
+        android:id="@+id/progress_card_overbalance"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:background="@drawable/shape_circle_progress"
+        android:indeterminate="false"
+        android:max="100"
+        android:progress="0"
+        tools:progress="80"
+        android:visibility="gone"
+        android:progressDrawable="@drawable/shape_color_circle_progress"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_balance_usage_card"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="usage 20%"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+
+</merge>

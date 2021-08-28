@@ -11,7 +11,7 @@ import retrofit2.Response
 
 class CardRepository() : CallbackImplementation {
 
-    override suspend fun requestCartoes(
+    override suspend fun requestCards(
         callbackSuccess: (successes: List<CardModel>?) -> Unit,
         callbackError: (error: String) -> Unit
     ) {

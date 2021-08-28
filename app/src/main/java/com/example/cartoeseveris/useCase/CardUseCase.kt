@@ -6,11 +6,11 @@ import com.example.cartoeseveris.repository.CardRepository
 
 class CardUseCase(private val repository: CardRepository) : CallbackImplementation {
 
-    override suspend fun requestCartoes(
+    override suspend fun requestCards(
         callbackSuccess: (successes: List<CardModel>?) -> Unit,
         callbackError: (error: String) -> Unit
     ) {
-        repository.requestCartoes(callbackSuccess, callbackError)
+        repository.requestCards(callbackSuccess, callbackError)
     }
 
 }
