@@ -12,6 +12,6 @@
     <string name="logout_home">Logout</string>
     <string name="sub_title_login">welcome login to your account</string>
     <string name="tv_help_page">Desculpe tivemos um problema !</string>
-    <string name="tv_unlimited_progress_bar">unlimited</string>
+    <string name="tv_unlimited_progress_bar">/ilimt.</string>
     <string name="tv_item">/</string>
 </resources>

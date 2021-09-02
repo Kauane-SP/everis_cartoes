@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
 
                 R.id.home -> {
                     supportFragmentManager.beginTransaction().apply {
-                        replace(R.id.content_main, User.newInstance())
+                        replace(R.id.content_main, Home.newInstance())
                         commit()
                     }
                 }
